@@ -1,0 +1,36 @@
+{% extends "nftAnnonceBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block nftannonce_body %}    
+    <table class="table table-bordered table-striped text-center">
+        <tr>
+            <th>Image de l'annonce</th>
+            <th>Titre de l'annonce</th>
+            <th>Auteur</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+
+        {% for annonce in listeAnnonces %}
+         <tr>
+            <td><img src="{{ annonce.liensPhotosAn }}" height="120" width="200">
+            </td>
+
+            <td><a href="{{ path('nft_annonce_viewpage', {'idAn': annonce.idAn}) }}">{{ annonce.labelAn }}</a>
+            </td>
+
+            <td>{{ annonce.idUt.username }}</td>
+            <td><a href="{{ path('nft_annonce_editpage', {'idAn': annonce.idAn}) }}" class="btn btn-warning">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+            </td>
+            <td><a href="{{ path('nft_annonce_deletepage', {'idAn': annonce.idAn}) }}" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+

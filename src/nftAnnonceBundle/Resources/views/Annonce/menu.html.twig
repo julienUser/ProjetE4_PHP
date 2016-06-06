@@ -1,0 +1,9 @@
+<ul class="nav nav-pills nav-stacked">
+    {% for annonce in listeAnnonces %}
+        <li>
+            <a href="{{ path('nft_annonce_viewpage', {'idAn': annonce.idAn}) }}">
+                {{ annonce.labelAn }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

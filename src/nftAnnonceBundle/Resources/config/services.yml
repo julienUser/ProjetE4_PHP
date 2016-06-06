@@ -1,0 +1,9 @@
+services:
+#    nft_annonce.example:
+#        class: nftAnnonceBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+    site_user_registration:
+        class: nftAnnonceBundle\Form\RegistrationType
+        arguments: [%fos_user.model.user.class%]
+        tags: 
+            - { name: form.type, alias: site_user_registration }

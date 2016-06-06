@@ -1,0 +1,128 @@
+{% extends "nftMembreBundle::layout.html.twig" %}
+
+
+{% block title %} {{ parent() }} Espace membre{% endblock %}
+{% block body %}
+
+    {% block legend %}<h3>Bonjour {{ membre.prenomUt }} ! Gérez votre espace membre.</h3>{% endblock %}
+
+    <div class="row">
+    	<div class="col-md-4">
+
+    		<div class="col-md-8 nopadding" style="height:36px; line-height: 36px;">Afficher mes annonces</div>
+    		<div class="col-md-4 nopadding"><input type="checkbox" class="ios" /></div>
+    		<div class="col-md-12 nopadding">
+	    	  <article>
+			    <div class="card-header">
+			      <img class="profile-photo" src="/bundles/framework/images/membres/julien.png">
+			      <a href="#"><button type="button">{{ membre.nomUt }} {{ membre.prenomUt }}</button></a>
+			    </div>
+			    <ul class="card-links">
+			      <a href="#">
+			        <li>
+			          <i class="fa fa-home"></i><span class="label">{{ membre.username }} </span>
+			        </li>
+			      </a>
+			      <hr>
+			      <a href="#">
+			        <li>
+			          <span class="label">Annonces </span><span class="label-notification label-active"> {{ nbannonces }}</span>
+			        </li>
+			      </a>
+			      <hr>
+			      <a href="#">
+			        <li>
+			          <i class="icon icon-list-alt"></i><span class="label">Crédits </span><span class="label-notification label-active">{{ credit }}</span>
+			        </li>
+			      </a>
+			      <hr>
+{# 			      <a href="#">
+			        <li>
+			          <i class="icon icon-time"></i><span class="label"></span>
+			        </li>
+			      </a> #}
+			      <hr>
+			    </ul>
+			  </article>
+			  <br>
+			  <a href="{{ path('nft_membre_deletepage', {'idUt': membre.id}) }}" class="btn btn-danger">
+                <i class="glyphicon glyphicon-trash"></i>
+                        Supprimer le compte
+              </a>
+			</div>
+			{# <div class="col-md-6"> #}
+				{# <div><img src="http://imworld.aufeminin.com/story/20131212/justin-bieber-143114_w650.jpg" height="150" width="150"></div>
+				<table class="table table-striped text-left" id="table-member">				
+					<tr>
+						<td>{{ nom }} {{ prenom }}</td>					
+						<td style="text-align: right;"><a href="" class="">
+			                    <i class="glyphicon glyphicon-edit"></i>
+			                </a>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td>{{ adresse }}</td>					
+						<td style="text-align: right;"><a href="" class="">
+			                    <i class="glyphicon glyphicon-edit"></i>
+			                </a>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td>{{ mail }}</td>					
+						<td style="text-align: right;"><a href="" class="">
+			                    <i class="glyphicon glyphicon-edit"></i>
+			                </a>
+			            </td>
+			        </tr>
+			        <tr>
+			            <td>0{{ tel }}</td>					
+						<td style="text-align: right;"><a href="" class="">
+			                    <i class="glyphicon glyphicon-edit"></i>
+			                </a>
+			            </td>
+					</tr>
+					<tr>
+			            <td>Crédits : {{ credit }}</td>					
+						<td style="text-align: right;"><a href="" class="">
+			                    <i class="glyphicon glyphicon-purchase"></i>
+			                </a>
+			            </td>
+					</tr>
+				</table> #}
+	    	{# </div> #}
+	    </div>
+	    <div class="col-md-8" id="annoncemembre" style="display: none;">	    	
+		    <table class="table table-bordered table-striped text-center">
+		        <tr>
+		            <th>Image</th>
+		            <th>Titre</th>		            
+		            <th>Modifier</th>
+		            <th>Supprimer</th>
+		        </tr>
+		    	{% for annonce in listeAnnonces %}
+		         <tr>
+		            <td><img src="{{ annonce.liensPhotosAn }}" height="120" width="160">
+		            </td>
+
+		            <td><a href="{{ path('nft_annonce_viewpage', {'idAn': annonce.idAn}) }}">{{ annonce.labelAn }}</a>
+		            </td>
+		            <td><a href="{{ path('nft_annonce_editpage', {'idAn': annonce.idAn}) }}" class="btn btn-warning">
+		                    <i class="glyphicon glyphicon-edit"></i>
+		                </a>
+		            </td>
+		            <td><a href="{{ path('nft_annonce_deletepage', {'idAn': annonce.idAn}) }}" class="btn btn-danger">
+		                    <i class="glyphicon glyphicon-trash"></i>
+		                </a>
+		            </td>
+		        </tr>
+		        {% endfor %}
+    		</table>
+    		<br>
+    		<p>{{ string }}</p>
+	    </div>
+{# 	    <div class="col-md-4">
+	    	<h3>Historique de mes achats</h3>	    	
+	    </div> #}
+	</div>
+    <br>
+{% endblock %}

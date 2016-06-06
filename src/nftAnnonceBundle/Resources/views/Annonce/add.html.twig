@@ -1,0 +1,14 @@
+{% extends "nftAnnonceBundle::layout.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+
+{% block title %} {{ parent() }} - Add{% endblock %}
+{% block body %}
+
+    {% block legend %}<h3>Ajouter une annonce</h3>{% endblock %}
+    	{{form(form)}}
+    <p>
+        Attention : cette annonce sera ajoutée directement
+        sur la page d'accueil après validation du formulaire.
+    </p>
+{% endblock %}

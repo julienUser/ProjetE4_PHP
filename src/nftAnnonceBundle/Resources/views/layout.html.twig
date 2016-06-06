@@ -1,0 +1,57 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Annonce
+{% endblock %}
+
+{% block body %}
+
+    {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+     
+    <div class="row">    	
+            <div class="container-fluid">
+            <div class="col-md-6" style="padding:0px;"><h2 style="margin:0px;">Annonces</h2></div>        
+                <div class="input-group" id="adv-search">
+                    <i><input type="text" class="form-control" placeholder="Recherche personnalisée..." /></i>
+                    <div class="input-group-btn">
+                        <div class="btn-group" role="group">
+                            <div class="dropdown dropdown-lg">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <form class="form-horizontal" role="form">
+                                      <div class="form-group">
+                                        <label for="filter">Filtrer par</label>
+                                        <select class="form-control">
+                                            <option value="0" selected>Plus récents</option>
+                                            <option value="1">Plus anciens</option>
+                                        </select>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="contain">Marque</label>
+                                        <select class="form-control">
+                                            <option value="0" selected>Sélectionnez une marque</option>
+                                        </select>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="contain">Mots-clefs</label>
+                                        <input class="form-control" type="text" />
+                                      </div>
+                                      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <hr>
+
+    {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+    {% block nftannonce_body %}
+    {% endblock %}
+    <footer>      
+    </footer>
+{% endblock %}

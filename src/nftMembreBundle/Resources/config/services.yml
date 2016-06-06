@@ -1,0 +1,9 @@
+services:
+#    nft_membre.example:
+#        class: nftMembreBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+
+services:
+    nftMembreBundle.service.role:
+        class: nftMembreBundle\Services\RoleService
+        arguments: [@security.role_hierarchy]

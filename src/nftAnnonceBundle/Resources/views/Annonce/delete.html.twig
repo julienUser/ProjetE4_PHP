@@ -1,0 +1,13 @@
+{% extends "nftAnnonceBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} - Delete{% endblock %}
+{% block body %}
+
+    {% block legend %}<h3>Supprimer une annonce</h3>{% endblock %}
+
+    {{ include("nftAnnonceBundle:Annonce:form.html.twig") }}
+
+    <p>
+        Attention : cette annonce sera supprimée directement
+        après validation du formulaire.
+    </p>
+{% endblock %}

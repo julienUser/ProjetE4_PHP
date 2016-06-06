@@ -1,0 +1,8 @@
+{% extends "nftAnnonceBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} - Edit{% endblock %}
+
+{% block body %}
+	{% block legend %}<h3>Modifier une annonce</h3>{% endblock %}
+		{{ form(form) }}
+{% endblock %}
+

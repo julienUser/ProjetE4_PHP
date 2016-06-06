@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>{% block title %}Needfortruck{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="/bundles/framework/css/bs3/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="/bundles/framework/css/bs3/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/bundles/framework/css/creative.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    {% endblock %}
+
+
+</head>
+
+<body>
+<div class="container-full">
+<header>
+    {# <div class="row">
+        <div class="col-md-offset-3 col-md-6"></div>
+    </div> #}
+    <nav class="navbar navbar-default" role="navigation">                     
+            {# <div class="container-fluid"> #}
+                <!-- Brand and toggle get grouped for better mobile display -->
+                {# <div class="navbar-header">                
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="{{ path('nft_annonce_homepage') }}" class="navbar-brand"><i class="glyphicon glyphicon-home"></i></a>
+                </div> #}
+        
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav" style="width: 100%;">
+                        <li><a href="{{ path('nft_annonce_homepage') }}" class="navbar-brand" style="width: 100%;"><i class="glyphicon glyphicon-home"></i></a></li>                      
+                        <li><a href="#">FAQ</a></li>                        
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li><a href="{{ path('nft_annonce_addpage', {'idUt': app.user.id}) }}">Ajouter une annonce</a></li>
+                            <li>
+                                <a href="{{ path('nft_membre_homepage', {'idUt': app.user.id}) }}">Espace membre</a>
+                            </li>
+                            <li><a href="{{ path('nft_membre_optionpage', {'idUt': app.user.id}) }}">Options</a></li>
+
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}{% endif %}
+                                
+                            <li><a href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'Déconnexion'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            </li>
+                            {% else %}                            
+                            <li>
+                                <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                                <li><a href="#">Forum</a></li>                               
+                            </li>
+                            <li>
+                                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                            </li>
+                        {% endif %}                  
+                       {#  <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+                        <li id="login"><a href="{{ path('fos_user_security_login') }}">Connexion</a></li> #}
+                        {# <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('nft_annonce_homepage') }}">Annonces</a></li>
+                                <li><a href="{{ path('nft_annonce_homepage') }}">Annonces urgentes</a></li>
+                                <li><a href="{{ path('nft_annonce_addpage') }}">Ajouter une annonce</a></li>                             
+                                <li><a href="#">Nous contacter</a></li>
+                            </ul>
+                        </li> #}
+                    </ul>                    
+                </div><!-- /.navbar-collapse -->           
+            {# </div> #}
+    </nav>
+    <div class="row background-header"></div>
+</header>
+{# <div class="login" id="login-show">
+
+  <h2 class="login-header">Connexion</h2>
+
+  <form class="login-container">
+    <p><input type="email" placeholder="Email"></p>
+    <p><input type="password" placeholder="Mot de passe"></p>
+    <p><input type="submit" value="Valider"></p>
+  </form>
+</div> #}
+    {# <div class="container-full">
+        <div class="row" style="height: 200px; background-color: white;">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="color : white;">
+                <h3 class="text-center">Texte de référencement</h3>
+                <p class="text-center" style="height : 100px; line-height: 100px;">Lorem epsilum ta mère</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+        </div>
+    </div> #}
+    <div class="container" id="bobby">        
+        <div class="row">
+            <div id="menu" class="col-md-4">
+                <h3>Menu</h3>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{{ path('nft_annonce_homepage') }}">Accueil</a></li>                    
+                </ul>
+
+                <h4>Dernières annonces postées</h4>
+                {{ render(controller("nftAnnonceBundle:Annonce:menu" )) }}
+            </div>
+
+            <div id="content" class="col-md-8">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <hr>
+</div>
+
+{% block javascripts %}
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script src="/bundles/framework/javascript/main.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}
+
+</body>
+</html>

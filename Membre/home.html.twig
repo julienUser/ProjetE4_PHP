@@ -1,0 +1,10 @@
+{% extends "nftAnnonceBundle::layout.html.twig" %}
+
+
+{% block title %} {{ parent() }} - Espace membre{% endblock %}
+{% block body %}
+
+    {% block legend %}<h3>Gérer votre espace membre</h3>{% endblock %}
+    <p>{{ credit }} , {{ nom }} , {{ prenom }}
+    </p>
+{% endblock %}

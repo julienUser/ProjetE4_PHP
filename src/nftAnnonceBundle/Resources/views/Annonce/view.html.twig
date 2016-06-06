@@ -1,0 +1,150 @@
+{# src/nft/AnnonceBundle/Resources/view/view.html.twig #}
+
+{% extends "nftAnnonceBundle::layout.html.twig" %}
+
+{% block title %}
+    Lecture d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block body %} <h2>{{ annonce.labelAn }} : #{{ annonce.IdAn }}</h2>
+    {% block nftannonce_body %}
+            <table class="table" id="viewTable" style="border:3px solid grey;">
+                <tr>
+                    <td class="nopadding" style="background-color: beige;" colspan=""><img src={{ annonce.liensPhotosAn }} height="120" ; width="auto"></td>
+                    <td style="background-color: beige;"><h4><i>{{ "now"|date("d/m/Y") }}</i></h4>
+                    <i class="glyphicon glyphicon-earphone"></i> 06 65 24 83 21 <br>
+                    <i class="glyphicon glyphicon-envelope"></i> julien.rassinier@gmail.com</td>
+                </tr>
+                <tr>                    
+                    <td>Pays </td>
+                    <td> France </td>
+                </tr>
+                <tr>                    
+                    <td>Région</td>
+                    <td>Liege</td>
+               
+                </tr>
+                <tr>                    
+                    <td>Département</td>
+                    <td>Borgworm</td>
+               
+                </tr>
+                <tr>                    
+                    <td>Code postal : </td>
+                    <td>64074</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Marque :  </td>
+                    <td>{{ annonce.marqueAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Gamme :  </td>
+                    <td>{{ annonce.gammeAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Modèle :  </td>
+                    <td>{{ annonce.modeleAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Position du volant :  </td>
+                    <td>{{ annonce.volantAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Kilométrage :  </td>
+                    <td>{{ annonce.kilometrageAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Puissance :  </td>
+                    <td>{{ annonce.puissanceAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Puissance fiscale :  </td>
+                    <td>{{ annonce.puissancefAn }}</td>
+                </tr>
+
+                <tr>                    
+                    <td>Équipements :  </td>
+                    <td>{{ annonce.equipementsAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Capacité du réservoir :  </td>
+                    <td>{{ annonce.capaciteReservoirAn }}</td>
+               
+                </tr>
+
+
+                <tr>                    
+                    <td>Nombre de places assises :  </td>
+                    <td>{{ annonce.nbplacesAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Classe environnementale :  </td>
+                    <td>{{ annonce.classeEnvAn }}</td>
+               
+                </tr>
+
+                <tr>                    
+                    <td>Date d'immatriculation :  </td>
+                    <td>{{ annonce.dateImmatriculationAn|date('d-m-Y') }}</td>
+                </tr>
+            </table>
+
+           
+                <p>Publié par : <i>{{ auteur }}</i></p>
+                <br>
+                <p>
+                    <a href="{{ path('nft_annonce_homepage') }}" class="btn btn-default">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Retour à la liste
+                    </a>
+                    <a href="{{ path('nft_annonce_editpage', {'idAn': annonce.idAn}) }}" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        Modifier l'annonce
+                    </a>
+                    <a href="{{ path('nft_annonce_deletepage', {'idAn': annonce.idAn}) }}" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        Supprimer l'annonce
+                    </a>
+                    
+                </p>   
+
+
+
+    <!--
+    <script>
+    $('.suppr').click(function()
+    {
+        $.ajax
+        ({
+            type: "POST",
+            data: {id: this.id},
+            url: "",
+            success: function(data) {
+                if (data.status == 0){
+                    $('#'+data.id).parent().parent().fadeOut('slow');
+                }
+            }
+        });
+    });
+    </script>
+    -->
+    {% endblock %}
+{% endblock %}

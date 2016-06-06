@@ -1,0 +1,27 @@
+nft_annonce_homepage:
+    path:  /
+    defaults: { _controller: nftAnnonceBundle:Annonce:index}
+
+nft_annonce_viewpage:
+    path:     /view/{idAn}/
+    defaults: {_controller: nftAnnonceBundle:Annonce:view}
+    requirements:
+        id: \d*
+
+nft_annonce_addpage:
+    path:     /add/{idUt}
+    defaults: {_controller: nftAnnonceBundle:Annonce:add}
+
+nft_annonce_deletepage:
+    path:     /delete/{idAn}/
+    defaults: {_controller: nftAnnonceBundle:Annonce:delete}
+    requirements:
+        id: \d*
+
+nft_annonce_editpage:
+    path:     /edit/{idAn}/
+    defaults: {_controller: nftAnnonceBundle:Annonce:edit}
+    requirements:
+        id: \d*
+
+# Ne pas oublier d'ajouter les ID d'utilisateur pour récup le nb. de crédits.

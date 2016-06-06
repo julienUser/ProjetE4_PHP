@@ -1,0 +1,86 @@
+{# src/nft/AnnonceBundle/Resources/view/options.html.twig #}
+
+{% extends "nftAnnonceBundle::layout.html.twig" %}
+
+{% block title %}
+    Options {{ parent() }}
+{% endblock %}
+
+{% block body %} 
+    {% block nftannonce_body %}
+        <div class="col-md-12">
+            
+            <div class="row nopadding">
+                <div class="col-md-6 nopadding"><h2 style="margin:0px;">Options</h2></div>
+                <div class="col-md-6 nopadding" style="text-align:right;"><a href="{{ path('nft_membre_packpage', {'idUt': app.user.id}) }}"><button type="button" class="btn btn-success">Acheter des crédits</button></a></div>
+                <br>
+            </div>        
+            
+            <table class="table" style="border:3px solid grey; margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Options</th>
+                        <th>Label</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                        <th style="background-color: #1abc9c;">{{ credit }}</th>
+                    </tr>
+                </thead>
+                {% for option in listeOptions %}
+                    <tr>
+                        <td style="text-align: center;"><img src="/bundles/framework/images/options/{{option.linkOp}}.png" alt="" width='35' height="35"></td>
+                        <td style="text-align: center;"><b>{{ option.labelOP }}</b></td>
+                        <td style="text-align: center;"><b>{{ option.DescriptionOp }}</b></td>
+                        <td style="text-align: center;">{{ option.prixOp }} €</td>
+                        <td style="text-align: center;" class="fa-fa-shoppingOnClick"><a><i class="fa fa-shopping-cart"></i></a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            
+        </div>      
+            <div class="col-md-6">
+                <h3 style="text-align: left;">Mon compte</h3>
+                <table class="table" style="border:3px solid grey;">
+                    <thead>
+                        <tr>                    
+                            <th>Options</th>
+                            <th>Quantité disponible</th>
+                            <th style="background-color: #1abc9c;">Mon solde : <b>{{ credit }}</b></th> 
+                        </tr>
+                    </thead>
+                    <tr>                
+                        <td style="text-align: center;"><img src="http://image.noelshack.com/fichiers/2016/14/1460193316-emergency-opt.png" alt="" width='35' height="35"></td>
+                        <td style="text-align: center;"><b>3</b></td>
+                        <td><a title="Utiliser cette option sur une annonce" class="onClickChangeColor"><i class="fa fa-external-link-square"></i></a></td>
+                    </tr>
+                    <tr>                
+                        <td><img src="http://image.noelshack.com/fichiers/2016/14/1460193323-up-opt.png" alt="" width="35" height="35"></td>
+                        <td><b>1</b></td>
+                        <td><a title="Utiliser cette option sur une annonce" class="onClickChangeColor"><i class="fa fa-external-link-square"></i></a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6" id ="col-md-6-annonce">
+                <h3 style="text-align: left;">Mes annonces</h3>
+                <table class="table" style="border:3px solid grey;">
+                    <thead>
+                        <tr>                    
+                            <th>Référence</th>
+                            <th>Titre</th>
+                            <th style="background-color: #1abc9c;"></th> 
+                        </tr>
+                        <tr>                
+                            <td><u>#795801925873</u></td>
+                            <td><b>MERCEDES Truck SP L650</b></td>
+                            <td><a title="Utiliser cette option sur une annonce"><i class="fa fa-check"></i></a></td>
+                        </tr>
+                        <tr>                
+                            <td><u>#995019285761</u></td>
+                            <td><b>Mercedes GOLD edition</b></td>
+                            <td><a title="Valider"><i class="fa fa-check"></i></a></td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>        
+    {% endblock %}
+{% endblock %}

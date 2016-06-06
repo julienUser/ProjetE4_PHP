@@ -1,0 +1,29 @@
+nft_membre_homepage:
+    path:     /membre/{idUt}
+    defaults: {_controller: nftMembreBundle:Membre:membre}
+    requirements:
+        id: \d*
+
+nft_membre_optionpage: 
+    path:     /option/{idUt}
+    defaults: {_controller: nftMembreBundle:Membre:option}
+    requirements:
+        id: \d* 
+
+nft_membre_packpage:
+    path:     /pack/{idUt}
+    defaults: {_controller: nftMembreBundle:Membre:pack}
+    requirements:
+        id: \d*
+
+nft_membre_adminpage:
+    path:     /admin/{idUt}
+    defaults: {_controller: nftMembreBundle:Membre:admin}
+    requirements:
+        id: \d* 
+
+nft_membre_deletepage:
+    path:     /membre/delete/{idUt}
+    defaults: {_controller: nftMembreBundle:Membre:delete}
+    requirements:
+        id: \d* 
